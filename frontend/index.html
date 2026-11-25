@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drape — Personal Style Studio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="studio.js" defer></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="#">drape<span>.</span></a><a href="#studio">Style studio ↗</a></header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Personal style studio</p>
+        <h1 id="hero-title">Find your<br><em>next look.</em></h1>
+        <p>Start with two photos. Then tell us what you feel like wearing, in your own words.</p>
+        <a href="#studio" class="button">Start your look <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Shoppers browsing a clothing rack" onerror="this.hidden = true">
+      </div>
+    </section>
+    <section class="studio" id="studio" aria-labelledby="studio-title">
+      <div class="intro">
+        <p class="eyebrow">Style studio</p>
+        <h2 id="studio-title">Create your look</h2>
+        <p>Review your photos before sending them for analysis.</p>
+        <ol class="steps" aria-label="Progress">
+          <li aria-current="step">Face photo</li>
+          <li>Body photo</li>
+          <li>Clothing request</li>
+        </ol>
+      </div>
+      <div class="panel">
+        <section id="photo-step">
+          <h3 id="photo-title" tabindex="-1">Take a face photo</h3>
+          <p id="photo-tip">Look straight at the camera in even lighting.</p>
+          <div class="preview">
+            <p id="placeholder">Camera and photo preview</p>
+            <video id="camera" autoplay playsinline muted hidden aria-label="Live camera preview"></video>
+            <img id="photo-preview" alt="" hidden>
+          </div>
+          <div class="actions">
+            <button class="outline" id="open-camera">Use camera</button>
+            <button class="outline" id="capture" disabled hidden>Take photo</button>
+            <button class="outline" id="close-camera" hidden>Close camera</button>
+            <label class="upload button outline">Upload photo<input id="upload" type="file" accept="image/jpeg,image/png,image/webp"></label>
+          </div>
+          <p id="photo-status" class="status" role="status"></p>
+          <div class="bottom">
+            <button class="back" id="photo-back" hidden>← Back</button>
+            <button id="photo-next" disabled>Continue →</button>
+          </div>
+        </section>
+        <form id="request-step" hidden>
+          <h3 id="request-title" tabindex="-1">What do you want to wear?</h3>
+          <label for="request">Describe your outfit</label>
+          <textarea id="request" rows="4" maxlength="500" required placeholder="e.g. A black shirt for a birthday party"></textarea>
+          <p id="suggestion-label">Try a suggestion</p>
+          <div id="suggestions" class="suggestions" role="group" aria-labelledby="suggestion-label"></div>
+          <div class="bottom">
+            <button type="button" class="back" id="request-back">← Back</button>
+            <button type="submit">Review request →</button>
+          </div>
+        </form>
+        <section id="review" hidden>
+          <h3 id="review-title" tabindex="-1">Review your request</h3>
+          <div class="review-photos">
+            <figure><img id="review-face" alt="Your face photo"><figcaption>Face photo</figcaption></figure>
+            <figure><img id="review-body" alt="Your full-body photo"><figcaption>Body photo</figcaption></figure>
+          </div>
+          <p id="review-request" class="review-request"></p>
+          <p>Your cropped face photo is sent to Roboflow for prediction. Your body photo goes only to your local backend.</p>
+          <button type="button" id="send-request">Analyze outfit</button>
+          <p id="send-status" class="status" role="status"></p>
+          <fieldset id="style-profile" hidden>
+            <legend>Review your style profile</legend>
+
+            <label for="profile-face">Face shape</label>
+            <select id="profile-face">
+              <option value="">Not set</option>
+              <option value="oval">Oval</option>
+              <option value="round">Round</option>
+              <option value="square">Square</option>
+              <option value="heart">Heart</option>
+              <option value="long">Long</option>
+            </select>
+
+            <label for="profile-body">Body shape</label>
+            <select id="profile-body">
+              <option value="">Not set</option>
+              <option value="rectangle">Rectangle</option>
+              <option value="triangle">Triangle</option>
+              <option value="inverted-triangle">Inverted triangle</option>
+              <option value="hourglass">Hourglass</option>
+              <option value="oval">Oval</option>
+            </select>
+
+            <label for="profile-skin">Skin depth</label>
+            <select id="profile-skin">
+              <option value="">Not set</option>
+              <option value="light">Light</option>
+              <option value="medium">Medium</option>
+              <option value="tan">Tan</option>
+              <option value="deep">Deep</option>
+            </select>
+          </fieldset>
+          <section id="outfit-results" hidden aria-labelledby="outfit-title">
+            <h4 id="outfit-title">Outfit ideas</h4>
+            <ul id="outfit-list"></ul>
+          </section>
+          <div class="bottom"><button class="back" id="review-back">← Edit request</button><button id="reset">Start over</button></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="top"><a class="brand" href="#">drape<span>.</span></a><small>Personal style studio</small></footer>
+</body>
+</html>
