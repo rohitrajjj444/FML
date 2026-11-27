@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Drape — Personal Style Studio</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="studio.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=preferences-2">
+  <script src="studio.js?v=weighted-ranking-1" defer></script>
 </head>
 <body>
   <header class="top"><a class="brand" href="#">drape<span>.</span></a><a href="#studio">Style studio ↗</a></header>
@@ -14,7 +14,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Personal style studio</p>
         <h1 id="hero-title">Find your<br><em>next look.</em></h1>
-        <p>Start with two photos. Then tell us what you feel like wearing, in your own words.</p>
+        <p>Start with two photos and select your preferred style to discover personalised outfits.</p>
         <a href="#studio" class="button">Start your look <span aria-hidden="true">↘</span></a>
       </div>
       <div class="hero-image">
@@ -29,7 +29,7 @@
         <ol class="steps" aria-label="Progress">
           <li aria-current="step">Face photo</li>
           <li>Body photo</li>
-          <li>Clothing request</li>
+          <li>Style preference</li>
         </ol>
       </div>
       <div class="panel">
@@ -54,14 +54,37 @@
           </div>
         </section>
         <form id="request-step" hidden>
-          <h3 id="request-title" tabindex="-1">What do you want to wear?</h3>
-          <label for="request">Describe your outfit</label>
-          <textarea id="request" rows="4" maxlength="500" required placeholder="e.g. A black shirt for a birthday party"></textarea>
-          <p id="suggestion-label">Try a suggestion</p>
-          <div id="suggestions" class="suggestions" role="group" aria-labelledby="suggestion-label"></div>
+          <h3 id="request-title" tabindex="-1">
+            Choose your shopping preferences
+          </h3>
+
+          <div class="preference-fields">
+            <div class="preference-field">
+              <label for="shopping-gender">Shop for</label>
+              <div class="preference-select">
+                <select id="shopping-gender" required>
+                  <option value="">Select a collection</option>
+                  <option value="male">Men’s</option>
+                  <option value="female">Women’s</option>
+                </select>
+              </div>
+            </div>
+            <div class="preference-field">
+              <label for="request">Design preference</label>
+              <div class="preference-select">
+                <select id="request" required>
+                  <option value="simple">Simple</option>
+                  <option value="fashioned">Fashioned</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
           <div class="bottom">
-            <button type="button" class="back" id="request-back">← Back</button>
-            <button type="submit">Review request →</button>
+            <button type="button" class="back" id="request-back">
+              ← Back
+            </button>
+            <button type="submit">Continue →</button>
           </div>
         </form>
         <section id="review" hidden>
@@ -91,10 +114,10 @@
             <select id="profile-body">
               <option value="">Not set</option>
               <option value="rectangle">Rectangle</option>
-              <option value="triangle">Triangle</option>
-              <option value="inverted-triangle">Inverted triangle</option>
+              <option value="pear">Pear</option>
+              <option value="inverted_triangle">Inverted triangle</option>
               <option value="hourglass">Hourglass</option>
-              <option value="oval">Oval</option>
+              <option value="apple">Apple</option>
             </select>
 
             <label for="profile-skin">Skin depth</label>
@@ -102,8 +125,7 @@
               <option value="">Not set</option>
               <option value="light">Light</option>
               <option value="medium">Medium</option>
-              <option value="tan">Tan</option>
-              <option value="deep">Deep</option>
+              <option value="dark">Dark</option>
             </select>
           </fieldset>
           <section id="outfit-results" hidden aria-labelledby="outfit-title">

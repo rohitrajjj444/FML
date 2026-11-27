@@ -1,0 +1,2 @@
+model,total_rows_used,train_rows,test_rows,split_ratio,label_noise_in_input_file,evaluation_labels,test_accuracy,balanced_test_accuracy,top_3_test_accuracy,macro_precision,macro_recall,macro_f1,number_of_classes
+RandomForestClassifier,5000,4000,1000,80:20,30% (as specified),Noisy labels from the same input CSV,0.814,0.7910389055389055,0.861,0.812158323158323,0.7910389055389055,0.7869881816673778,150

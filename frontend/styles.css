@@ -56,6 +56,43 @@ h3 { font-size: clamp(2rem, 3.4vw, 3.2rem); letter-spacing: -.04em; margin-botto
 #outfit-list li { border: 1px solid var(--line); background: var(--paper); padding: .8rem 1rem; }
 #outfit-list li small { color: var(--muted); }
 form label { display: block; font-weight: 650; margin-top: 1rem; }
+.preference-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1rem;
+  margin-block: 1.4rem .75rem;
+}
+.preference-field label { margin: 0 0 .4rem; }
+.preference-select { position: relative; }
+.preference-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1.1rem;
+  width: .5rem;
+  height: .5rem;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+.preference-select select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: .75rem 2.75rem .75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 550;
+  cursor: pointer;
+}
+.preference-select select:invalid { color: var(--muted); }
+.preference-select select:hover { border-color: #778c38; }
+.preference-select select:focus-visible { background-color: var(--white); }
 textarea { width: 100%; resize: vertical; padding: .75rem; color: var(--ink); background: var(--white); border: 1px solid var(--line); font: inherit; margin: .4rem 0 .75rem; }
 .suggestions { margin-top: .35rem; }
 .suggestions button { background: #e9edda; color: var(--ink); border-color: var(--line); text-align: left; }
